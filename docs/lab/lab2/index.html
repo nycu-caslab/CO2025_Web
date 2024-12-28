@@ -9,16 +9,18 @@
   #
 
 
-  Under Construction
+  Introduction
   #
 
-This page is actively being developed. Please check back soon for updates and additional content.">
+In Lab2, you are tasked with implementing a Single Cycle CPU based on the RISC-V ISA. Upon completing this lab, you should have a deeper understanding of CPU architecture and the RISC-V instruction set.
+Don’t panic! This lab is not as difficult as it might seem. To successfully implement the RISC-V CPU, we encourage you to study the functionality of each component and understand how they cooperate. We will also introduce a useful RISC-V simulator, Ripes, which demonstrates the CPU workflow step by step.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://nycu-caslab.github.io/CO2025_Web/docs/lab/lab2/">
   <meta property="og:site_name" content="Computer Organization">
   <meta property="og:title" content="Lab2: Single Cycle CPU">
-  <meta property="og:description" content=" Lab2: Single Cycle CPU # Under Construction # This page is actively being developed. Please check back soon for updates and additional content.">
+  <meta property="og:description" content=" Lab2: Single Cycle CPU # Introduction # In Lab2, you are tasked with implementing a Single Cycle CPU based on the RISC-V ISA. Upon completing this lab, you should have a deeper understanding of CPU architecture and the RISC-V instruction set.
+Don’t panic! This lab is not as difficult as it might seem. To successfully implement the RISC-V CPU, we encourage you to study the functionality of each component and understand how they cooperate. We will also introduce a useful RISC-V simulator, Ripes, which demonstrates the CPU workflow step by step.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 <title>Lab2: Single Cycle CPU | Computer Organization</title>
@@ -27,9 +29,9 @@ This page is actively being developed. Please check back soon for updates and ad
 
 
 
-<link rel="stylesheet" href="/CO2025_Web/book.min.58d277b7ad9b6dd053c8cb3db15b6fa5bc5f015a7e7e1480bed1bd9534cf4480.css" integrity="sha256-WNJ3t62bbdBTyMs9sVtvpbxfAVp&#43;fhSAvtG9lTTPRIA=" crossorigin="anonymous">
+<link rel="stylesheet" href="/CO2025_Web/book.min.30d2af86670c2e3592c8ad56918372df516fcb250a8b22dec7866ff3f01fda22.css" integrity="sha256-MNKvhmcMLjWSyK1WkYNy31FvyyUKiyLex4Zv8/Af2iI=" crossorigin="anonymous">
   <script defer src="/CO2025_Web/fuse.min.js"></script>
-  <script defer src="/CO2025_Web/en.search.min.89bfde18f9f7e89c4a4e0f72f2de68c2942d63283c572294ccb3ab3f5663172c.js" integrity="sha256-ib/eGPn36JxKTg9y8t5owpQtYyg8VyKUzLOrP1ZjFyw=" crossorigin="anonymous"></script>
+  <script defer src="/CO2025_Web/en.search.min.bbee72e916df92eb19d482992358235442fce7e9f2c6f5faeb0b42c8bb4d2499.js" integrity="sha256-u&#43;5y6RbfkusZ1IKZI1gjVEL85&#43;nyxvX66wtCyLtNJJk=" crossorigin="anonymous"></script>
 
   <script defer src="/CO2025_Web/sw.min.a9932dc0c3ce17553e3f22300b49c192858d2fb2a16e0ed0ecd2495e53b67c84.js" integrity="sha256-qZMtwMPOF1U&#43;PyIwC0nBkoWNL7Khbg7Q7NJJXlO2fIQ=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://nycu-caslab.github.io/CO2025_Web/docs/lab/lab2/index.xml" title="Computer Organization" />
@@ -48,7 +50,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a class="flex align-center" href="/CO2025_Web/"><span>Computer Organization</span>
+  <a class="flex align-center" href="/CO2025_Web/"><img src="/CO2025_Web/logo.png" alt="Logo" /><span>Computer Organization</span>
   </a>
 </h2>
 
@@ -294,7 +296,10 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#lab2-single-cycle-cpu">Lab2: Single Cycle CPU</a>
       <ul>
-        <li><a href="#under-construction">Under Construction</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#lab-source-code">Lab Source Code</a></li>
+        <li><a href="#ripes">Ripes</a></li>
+        <li><a href="#reference">Reference</a></li>
       </ul>
     </li>
   </ul>
@@ -313,11 +318,68 @@ https://github.com/alex-shpak/hugo-book
   Lab2: Single Cycle CPU
   <a class="anchor" href="#lab2-single-cycle-cpu">#</a>
 </h1>
-<h2 id="under-construction">
-  Under Construction
-  <a class="anchor" href="#under-construction">#</a>
+<h2 id="introduction">
+  Introduction
+  <a class="anchor" href="#introduction">#</a>
 </h2>
-<p>This page is actively being developed. Please check back soon for updates and additional content.</p>
+<p>In Lab2, you are tasked with implementing a Single Cycle CPU based on the RISC-V ISA. Upon completing this lab, you should have a deeper understanding of CPU architecture and the RISC-V instruction set.</p>
+<p>Don’t panic! This lab is not as difficult as it might seem. To successfully implement the RISC-V CPU, we encourage you to study the functionality of each component and understand how they cooperate. We will also introduce a useful RISC-V simulator, Ripes, which demonstrates the CPU workflow step by step.</p>
+<h2 id="lab-source-code">
+  Lab Source Code
+  <a class="anchor" href="#lab-source-code">#</a>
+</h2>
+<p>The TAs have prepared a template for you. You can follow the template or modify it as needed. However, there are certain elements you should not change:</p>
+<ul>
+<li>Registers</li>
+<li>Instruction Memory</li>
+<li>Data Memory</li>
+<li>CPU I/O interface and register instance names</li>
+</ul>
+<p>In the provided source code, we include a simple instruction file, <code>TEST_INSTRUCTIONS.txt</code>, containing machine code generated from <code>TEST_INSTRUCTIONS.asm</code>.</p>
+<blockquote>
+<p><strong>⚠ Important</strong><br>
+The <code>rst</code> signal is active low, which means the module will reset when the <code>rst</code> signal is set to zero. You should follow this design in your implementation.</p>
+</blockquote>
+<h2 id="ripes">
+  Ripes
+  <a class="anchor" href="#ripes">#</a>
+</h2>
+<p>
+  <a href="https://ripes.me/">Ripes</a> is a visual computer architecture simulator and assembly code editor designed for the RISC-V instruction set architecture.</p>
+<p>
+  <img src="/CO2025_Web/lab2-1.png" alt="lab2-1" /></p>
+<p>As shown in the picture above, you can write your own assembly code, clock the processor, and verify the register values.</p>
+<p>You can copy the generated machine code into <code>TEST_INSTRUCTIONS.txt</code> in the following format to run your code on your CPU design. Each line in the file should contain 8 bits. A single 4-byte instruction is represented by 4 lines, and the file should end with a new empty line.</p>
+<pre tabindex="0"><code>00001010
+00110000
+00000100
+00010011
+11111111
+11000001
+00000001
+00010011
+00000000
+10000001
+00100000
+00100011
+00000000
+00000000
+00000100
+00110011
+</code></pre><blockquote>
+<p><strong>⚠ Important</strong><br>
+Ensure that you change the settings in Ripes to match the constraints of the register values specified for this lab.
+
+  <img src="/CO2025_Web/lab2-2.png" alt="lab2-2" /></p>
+</blockquote>
+<h2 id="reference">
+  Reference
+  <a class="anchor" href="#reference">#</a>
+</h2>
+<ul>
+<li>
+  <a href="https://github.com/mortbopet/Ripes">Ripes</a></li>
+</ul>
 </article>
  
       
@@ -326,12 +388,6 @@ https://github.com/alex-shpak/hugo-book
         
   <div class="flex flex-wrap justify-between">
 
-
-  <div><a class="flex align-center" href="https://github.com/nycu-caslab/CO2025_Web/commit/ba3e57df80e3cd97af8c11f6f432c2d08564d78f" title='Last modified by userwei | December 28, 2024' target="_blank" rel="noopener">
-      <img src="/CO2025_Web/svg/calendar.svg" class="book-icon" alt="" />
-      <span>December 28, 2024</span>
-    </a>
-  </div>
 
 
 
@@ -378,7 +434,10 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#lab2-single-cycle-cpu">Lab2: Single Cycle CPU</a>
       <ul>
-        <li><a href="#under-construction">Under Construction</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#lab-source-code">Lab Source Code</a></li>
+        <li><a href="#ripes">Ripes</a></li>
+        <li><a href="#reference">Reference</a></li>
       </ul>
     </li>
   </ul>
