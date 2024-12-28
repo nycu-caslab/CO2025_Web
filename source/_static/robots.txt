@@ -1,0 +1,14 @@
+#    _____
+#   | o o |
+#  (|  ^  |)
+#   |  -  |
+#   | [_] |
+#   |     |
+#   |_____|
+#    |   | 
+
+User-agent: *
+Disallow: /categories/
+Disallow: /tags/
+
+Sitemap: https://github.com/nycu-caslab/CO2025_Web/sitemap.xml
