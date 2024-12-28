@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  
+  <link rel="icon" href="/CO2025_Web/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="/CO2025_Web/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/CO2025_Web/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/CO2025_Web/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/CO2025_Web/favicon-16x16.png" />
+  <link rel="manifest" href="/CO2025_Web/site.webmanifest" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -31,7 +36,7 @@ Don’t panic! This lab is not as difficult as it might seem. To successfully im
 
 <link rel="stylesheet" href="/CO2025_Web/book.min.30d2af86670c2e3592c8ad56918372df516fcb250a8b22dec7866ff3f01fda22.css" integrity="sha256-MNKvhmcMLjWSyK1WkYNy31FvyyUKiyLex4Zv8/Af2iI=" crossorigin="anonymous">
   <script defer src="/CO2025_Web/fuse.min.js"></script>
-  <script defer src="/CO2025_Web/en.search.min.bbee72e916df92eb19d482992358235442fce7e9f2c6f5faeb0b42c8bb4d2499.js" integrity="sha256-u&#43;5y6RbfkusZ1IKZI1gjVEL85&#43;nyxvX66wtCyLtNJJk=" crossorigin="anonymous"></script>
+  <script defer src="/CO2025_Web/en.search.min.56dad6f40bebf4729d5b60d6649e624c08fef931a56c8f3d465fa8e5b12d7259.js" integrity="sha256-VtrW9Avr9HKdW2DWZJ5iTAj&#43;&#43;TGlbI89Rl&#43;o5bEtclk=" crossorigin="anonymous"></script>
 
   <script defer src="/CO2025_Web/sw.min.a9932dc0c3ce17553e3f22300b49c192858d2fb2a16e0ed0ecd2495e53b67c84.js" integrity="sha256-qZMtwMPOF1U&#43;PyIwC0nBkoWNL7Khbg7Q7NJJXlO2fIQ=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://nycu-caslab.github.io/CO2025_Web/docs/lab/lab2/index.xml" title="Computer Organization" />
@@ -299,6 +304,15 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#lab-source-code">Lab Source Code</a></li>
         <li><a href="#ripes">Ripes</a></li>
+        <li><a href="#single-cycle-cpu">Single Cycle CPU</a>
+          <ul>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#instruction">Instruction</a></li>
+          </ul>
+        </li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#submission">Submission</a></li>
+        <li><a href="#hints">Hints</a></li>
         <li><a href="#reference">Reference</a></li>
       </ul>
     </li>
@@ -347,38 +361,169 @@ The <code>rst</code> signal is active low, which means the module will reset whe
 <p>
   <a href="https://ripes.me/">Ripes</a> is a visual computer architecture simulator and assembly code editor designed for the RISC-V instruction set architecture.</p>
 <p>
-  <img src="/CO2025_Web/lab2-1.png" alt="lab2-1" /></p>
+  <img src="/CO2025_Web/lab2-ripes1.png" alt="lab2-ripes1" /></p>
 <p>As shown in the picture above, you can write your own assembly code, clock the processor, and verify the register values.</p>
 <p>You can copy the generated machine code into <code>TEST_INSTRUCTIONS.txt</code> in the following format to run your code on your CPU design. Each line in the file should contain 8 bits. A single 4-byte instruction is represented by 4 lines, and the file should end with a new empty line.</p>
-<pre tabindex="0"><code>00001010
-00110000
-00000100
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span><span style="color:#a6e22e">addi</span> <span style="color:#66d9ef">t2</span> <span style="color:#66d9ef">zero</span> <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">jalr</span> <span style="color:#66d9ef">ra</span> (<span style="color:#66d9ef">t2</span>)<span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">addi</span> <span style="color:#66d9ef">t0</span> <span style="color:#66d9ef">zero</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">addi</span> <span style="color:#66d9ef">t0</span> <span style="color:#66d9ef">t0</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">addi</span> <span style="color:#66d9ef">t0</span> <span style="color:#66d9ef">t0</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">addi</span> <span style="color:#66d9ef">t1</span> <span style="color:#66d9ef">zero</span> <span style="color:#ae81ff">100</span>
+</span></span></code></pre></div><pre tabindex="0"><code>00000001
+01000000
+00000011
+10010011
+00000000
+00000011
+10000000
+11100111
+00000000
+00010000
+00000010
+10010011
+00000000
+00010010
+10000010
+10010011
+00000000
+00010010
+10000010
+10010011
+00000110
+01000000
+00000011
 00010011
-11111111
-11000001
-00000001
-00010011
-00000000
-10000001
-00100000
-00100011
-00000000
-00000000
-00000100
-00110011
 </code></pre><blockquote>
 <p><strong>⚠ Important</strong><br>
 Ensure that you change the settings in Ripes to match the constraints of the register values specified for this lab.
 
-  <img src="/CO2025_Web/lab2-2.png" alt="lab2-2" /></p>
+  <img src="/CO2025_Web/img/lab2-ripes2.png" alt="lab2-ripes2" /></p>
 </blockquote>
+<h2 id="single-cycle-cpu">
+  Single Cycle CPU
+  <a class="anchor" href="#single-cycle-cpu">#</a>
+</h2>
+<h3 id="architecture">
+  Architecture
+  <a class="anchor" href="#architecture">#</a>
+</h3>
+<p>You can follow the architecture diagram to implement a single-cycle CPU.</p>
+<p>
+  <img src="/CO2025_Web/img/lab2-artitecture.jpg" alt="lab2-artitecture" /></p>
+<h3 id="instruction">
+  Instruction
+  <a class="anchor" href="#instruction">#</a>
+</h3>
+<p>Implement the following instructions. The RV32I ISA layout is provided below.</p>
+<ul>
+<li>add<br>
+
+  <img src="/CO2025_Web/img/add.png" alt="add" /></li>
+<li>addi<br>
+
+  <img src="/CO2025_Web/img/addi.png" alt="addi" /></li>
+<li>sub<br>
+
+  <img src="/CO2025_Web/img/sub.png" alt="sub" /></li>
+<li>and<br>
+
+  <img src="/CO2025_Web/img/and.png" alt="and" /></li>
+<li>andi<br>
+
+  <img src="/CO2025_Web/img/andi.png" alt="andi" /></li>
+<li>or<br>
+
+  <img src="/CO2025_Web/img/or.png" alt="or" /></li>
+<li>ori<br>
+
+  <img src="/CO2025_Web/img/ori.png" alt="ori" /></li>
+<li>slt<br>
+
+  <img src="/CO2025_Web/img/slt.png" alt="slt" /></li>
+<li>slti<br>
+
+  <img src="/CO2025_Web/img/slti.png" alt="slti" /></li>
+<li>lw<br>
+
+  <img src="/CO2025_Web/img/lw.png" alt="lw" /></li>
+<li>sw<br>
+
+  <img src="/CO2025_Web/img/sw.png" alt="sw" /></li>
+<li>beq<br>
+
+  <img src="/CO2025_Web/img/beq.png" alt="beq" /></li>
+<li>bne
+
+  <img src="/CO2025_Web/img/bne.png" alt="bne" /></li>
+<li>blt
+
+  <img src="/CO2025_Web/img/blt.png" alt="blt" /></li>
+<li>bge
+
+  <img src="/CO2025_Web/img/bge.png" alt="bge" /></li>
+<li>jal<br>
+<code>jal</code> stores <code>pc+4</code> in <code>regs[rd]</code>, executes <code>pc = pc + imm &lt;&lt; 1</code>
+
+  <img src="/CO2025_Web/img/jal.png" alt="jal" /></li>
+<li>jalr<br>
+<code>jalr</code> stores <code>pc+4</code> in <code>regs[rd]</code>, exectues <code>pc = regs[rs1] + imm</code>
+
+  <img src="/CO2025_Web/img/jalr.png" alt="jalr" /></li>
+</ul>
+<blockquote>
+<p><strong>⚠ Important</strong><br>
+All operations are signed. You must follow this ISA table to implement your instructions:<br>
+
+  <img src="/CO2025_Web/img/ISAtable.png" alt="lab2-2" /></p>
+</blockquote>
+<h2 id="requirements">
+  Requirements
+  <a class="anchor" href="#requirements">#</a>
+</h2>
+<p>Implement your RISC-V single-cycle CPU. Your CPU should support the following RISC-V ISA instructions:</p>
+<ul>
+<li>Arithmetic and Logical Operations: <code>add</code>, <code>addi</code>, <code>sub</code>, <code>and</code>, <code>andi</code>, <code>or</code>, <code>ori</code>, <code>slt</code>, <code>slti</code></li>
+<li>Memory Operations: <code>lw</code>, <code>sw</code></li>
+<li>Branch Operations: <code>beq</code>, <code>bne</code>, <code>blt</code>, <code>bge</code></li>
+<li>Jump Operations: <code>jal</code>, <code>jalr</code></li>
+</ul>
+<p>TAs have prepared a Verilator testbench and some <code>TEST_INSTRUCTION.txt</code> files to grade your design. The correctness will be verified by comparing the register values.</p>
+<blockquote>
+<p><strong>⚠ Important</strong><br>
+Do not modify the register, instruction memory, or CPU interface, or you will receive 0 points.</p>
+</blockquote>
+<h2 id="submission">
+  Submission
+  <a class="anchor" href="#submission">#</a>
+</h2>
+<p>Please submit your source code as a ZIP file to E3. The name of the ZIP file should be <code>&lt;student_id&gt;.zip</code>, and the structure should be as follows:</p>
+<pre tabindex="0"><code>&lt;stduent_id&gt;.zip
+   |- &lt;student_id&gt;/
+      |- ...(your source codes)
+</code></pre><blockquote>
+<p><strong>⚠ Important</strong><br>
+The deadline for submission is <strong>x/xx 23:59</strong>.</p>
+</blockquote>
+<h2 id="hints">
+  Hints
+  <a class="anchor" href="#hints">#</a>
+</h2>
+<ul>
+<li>Read the textbook first to understand each submodule’s functionality.</li>
+<li>Use waveform debugging to simplify the debugging process.</li>
+<li>Try generating your own RISC-V machine code using Ripes. You can write simple assembly code to verify if your implementation works as expected.</li>
+</ul>
 <h2 id="reference">
   Reference
   <a class="anchor" href="#reference">#</a>
 </h2>
 <ul>
+<li>Computer Organization and Design RISC-V Edition, CH4</li>
 <li>
   <a href="https://github.com/mortbopet/Ripes">Ripes</a></li>
+<li>
+  <a href="https://msyksphinz-self.github.io/riscv-isadoc/html/rvi.html">RISC-V Instruction Set Specifications</a></li>
 </ul>
 </article>
  
@@ -437,6 +582,15 @@ Ensure that you change the settings in Ripes to match the constraints of the reg
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#lab-source-code">Lab Source Code</a></li>
         <li><a href="#ripes">Ripes</a></li>
+        <li><a href="#single-cycle-cpu">Single Cycle CPU</a>
+          <ul>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#instruction">Instruction</a></li>
+          </ul>
+        </li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#submission">Submission</a></li>
+        <li><a href="#hints">Hints</a></li>
         <li><a href="#reference">Reference</a></li>
       </ul>
     </li>
