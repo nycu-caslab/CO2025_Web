@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Computer Organization</title>
+    <link>https://nycu-caslab.github.io/CO2025_Web/docs/</link>
+    <description>Recent content in Docs on Computer Organization</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://nycu-caslab.github.io/CO2025_Web/docs/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
