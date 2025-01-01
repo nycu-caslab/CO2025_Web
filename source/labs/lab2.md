@@ -8,7 +8,7 @@ Don’t panic! This lab is not as difficult as it might seem. To successfully im
 
 ## Lab Source Code
 
-The TAs have prepared a template for you. You can follow the template or modify it as needed. However, there are certain elements you should not change:
+The TAs have prepared a [template](https://github.com/nycu-caslab/CO2025/tree/main/Lab2/lab2_template) for you. You can follow the template or modify it as needed. However, there are certain elements you should not change:
 
 - Registers
 - Instruction Memory
