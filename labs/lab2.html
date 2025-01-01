@@ -48,7 +48,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Lab3: Pipeline CPU" href="lab3.html" />
-    <link rel="prev" title="Lab1: Assembly and Basic Design Flow" href="lab1.html" />
+    <link rel="prev" title="Lab1: Assembly &amp; Basic Design Flow" href="lab1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -144,8 +144,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs:</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="lab0.html">Lab 0: Environment Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab1: Assembly and Basic Design Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab0.html">Lab 0: Environment Setup &amp; Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab1: Assembly &amp; Basic Design Flow</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab2: Single Cycle CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab3.html">Lab3: Pipeline CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab4.html">Lab4: Pipeline CPU</a></li>
@@ -453,20 +453,38 @@
 <p>TAs have prepared a Verilator testbench and some <code class="docutils literal notranslate"><span class="pre">TEST_INSTRUCTION.txt</span></code> files to grade your design. The correctness will be verified by comparing the register values.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Do not modify the register, instruction memory, or CPU interface, or you will receive 0 points.</p>
+<p>Do not modify the register, instruction memory, or CPU I/O interface, or you will receive 0 points.</p>
 </div>
 </section>
 <section id="submission">
 <h2>Submission<a class="headerlink" href="#submission" title="Link to this heading">#</a></h2>
-<p>Please submit your source code as a ZIP file to E3. The name of the ZIP file should be <code class="docutils literal notranslate"><span class="pre">&lt;student_id&gt;.zip</span></code>, and the structure should be as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">stduent_id</span><span class="o">&gt;.</span><span class="n">zip</span>
-   <span class="o">|-</span> <span class="o">&lt;</span><span class="n">student_id</span><span class="o">&gt;/</span>
-      <span class="o">|-</span> <span class="o">...</span><span class="p">(</span><span class="n">your</span> <span class="n">source</span> <span class="n">codes</span><span class="p">)</span>
+<p>Please submit your source code as a ZIP file to E3. The name of the ZIP file should be <code class="docutils literal notranslate"><span class="pre">lab2_&lt;student_id&gt;.zip</span></code>, and the structure should be as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>lab2_&lt;student_id&gt;.zip
+├── lab2_&lt;student_id&gt;
+│   ├── ALU.v
+│   ├── ALUCtrl.v
+│   ├── Adder.v
+│   ├── BranchComp.v
+│   ├── Control.v
+│   ├── DataMemory.v
+│   ├── ImmGen.v
+│   ├── InstructionMemory.v
+│   ├── Mux2to1.v
+│   ├── Mux3to1.v
+│   ├── PC.v
+│   ├── Register.v
+│   ├── ShiftLeftOne.v
+│   └── SingleCycleCPU.v
+</pre></div>
+</div>
+<p>You can check if the unzipped file contains the folder structure as described by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unzip<span class="w"> </span>lab2_&lt;stduent_id&gt;.zip
+tree<span class="w"> </span>lab2_&lt;stduent_id&gt;
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The deadline for submission is <strong>x/xx 23:59</strong>.</p>
+<p>The deadline for submission is <strong>x/xx 23:59</strong>. Any incorrect format will result in a 10-point deduction.</p>
 </div>
 </section>
 <section id="hints">
@@ -504,7 +522,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lab1: Assembly and Basic Design Flow</p>
+        <p class="prev-next-title">Lab1: Assembly &amp; Basic Design Flow</p>
       </div>
     </a>
     <a class="right-next"

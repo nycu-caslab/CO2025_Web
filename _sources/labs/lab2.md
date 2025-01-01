@@ -138,21 +138,41 @@ Implement your RISC-V single-cycle CPU. Your CPU should support the following RI
 TAs have prepared a Verilator testbench and some `TEST_INSTRUCTION.txt` files to grade your design. The correctness will be verified by comparing the register values.
 
 ```{warning}
-Do not modify the register, instruction memory, or CPU interface, or you will receive 0 points.
+Do not modify the register, instruction memory, or CPU I/O interface, or you will receive 0 points.
 ```
 
 ## Submission
 
-Please submit your source code as a ZIP file to E3. The name of the ZIP file should be `<student_id>.zip`, and the structure should be as follows:
+Please submit your source code as a ZIP file to E3. The name of the ZIP file should be `lab2_<student_id>.zip`, and the structure should be as follows:
 
 ```
-<stduent_id>.zip
-   |- <student_id>/
-      |- ...(your source codes)
+lab2_<student_id>.zip
+├── lab2_<student_id>
+│   ├── ALU.v
+│   ├── ALUCtrl.v
+│   ├── Adder.v
+│   ├── BranchComp.v
+│   ├── Control.v
+│   ├── DataMemory.v
+│   ├── ImmGen.v
+│   ├── InstructionMemory.v
+│   ├── Mux2to1.v
+│   ├── Mux3to1.v
+│   ├── PC.v
+│   ├── Register.v
+│   ├── ShiftLeftOne.v
+│   └── SingleCycleCPU.v
+```
+
+You can check if the unzipped file contains the folder structure as described by running:
+
+```bash
+unzip lab2_<stduent_id>.zip
+tree lab2_<stduent_id>
 ```
 
 ```{warning}
-The deadline for submission is **x/xx 23:59**.
+The deadline for submission is **x/xx 23:59**. Any incorrect format will result in a 10-point deduction.
 ```
 
 ## Hints

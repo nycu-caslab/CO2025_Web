@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lab 0: Environment Setup &#8212; CSCS10014: Computer Organization</title>
+    <title>Lab 0: Environment Setup &amp; Hello World &#8212; CSCS10014: Computer Organization</title>
   
   
   
@@ -47,7 +47,7 @@
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lab1: Assembly and Basic Design Flow" href="lab1.html" />
+    <link rel="next" title="Lab1: Assembly &amp; Basic Design Flow" href="lab1.html" />
     <link rel="prev" title="Staff" href="../class/staff.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -144,8 +144,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs:</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 0: Environment Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab1: Assembly and Basic Design Flow</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 0: Environment Setup &amp; Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab1: Assembly &amp; Basic Design Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab2.html">Lab2: Single Cycle CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab3.html">Lab3: Pipeline CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab4.html">Lab4: Pipeline CPU</a></li>
@@ -272,7 +272,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -283,11 +285,28 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 0: Environment Setup</h1>
+    <h1>Lab 0: Environment Setup & Hello World</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-setup">Environment Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-by-yourself">Setting up by yourself</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#riscv-gnu-toolchain">riscv-gnu-toolchain</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#riscv-tools">riscv-tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verilator">Verilator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gtkwave">gtkwave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ripes">Ripes</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -297,8 +316,151 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="lab-0-environment-setup">
-<h1>Lab 0: Environment Setup<a class="headerlink" href="#lab-0-environment-setup" title="Link to this heading">#</a></h1>
+  <section id="lab-0-environment-setup-hello-world">
+<h1>Lab 0: Environment Setup &amp; Hello World<a class="headerlink" href="#lab-0-environment-setup-hello-world" title="Link to this heading">#</a></h1>
+<section id="environment-setup">
+<h2>Environment Setup<a class="headerlink" href="#environment-setup" title="Link to this heading">#</a></h2>
+<p>Please search how to install <strong>VMware workstation 17</strong> on internet, and click <a class="reference external" href="https://drive.google.com/open?id=1E4y2BAJt8UGt3aKIF2QjL2CgAjDIwCiz&amp;amp;amp%3Busp=drive_copy&amp;amp;usp=drive_copy">cloud link</a> to download the installer.</p>
+<p>Virtual Machine VM</p>
+<ul class="simple">
+<li><p>Download : <a class="reference external" href="https://mega.nz/file/DM9hAayZ#Uu0cvXszt6_k_12zYGMZgFCilaymNbg-pNnebD5Ylg0">Click here</a> (19GB, suggest preparing at least 50GB for VM)</p></li>
+<li><p>Platform: Ubuntu20.04 amd64</p></li>
+<li><p>Machine: COVM</p></li>
+<li><p>Account: student</p></li>
+<li><p>Password: student</p></li>
+</ul>
+</section>
+<section id="setting-up-by-yourself">
+<h2>Setting up by yourself<a class="headerlink" href="#setting-up-by-yourself" title="Link to this heading">#</a></h2>
+<p>If you have Ubuntu20.04, the following is setup guide, however, the process might take hours.</p>
+<section id="tools">
+<h3>tools<a class="headerlink" href="#tools" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">git</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">vim</span>
+</pre></div>
+</div>
+</section>
+<section id="riscv-gnu-toolchain">
+<h3><a class="reference external" href="https://github.com/riscv-collab/riscv-gnu-toolchain">riscv-gnu-toolchain</a><a class="headerlink" href="#riscv-gnu-toolchain" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://hackmd.io/&#64;nx1bTzFpQvaKD_yxYRmBaQ/Skpx_8tSO">Reference</a></p>
+<p>Fetch source</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">riscv</span>
+<span class="n">cd</span> <span class="n">riscv</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">recursive</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">riscv</span><span class="o">/</span><span class="n">riscv</span><span class="o">-</span><span class="n">gnu</span><span class="o">-</span><span class="n">toolchain</span>
+</pre></div>
+</div>
+<p>Add two lines in the end of <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export RISCV=&quot;/home/{your_user_name}/riscv/riscv-gnu-toolchain&quot;
+export PATH=$PATH:$RISCV/bin
+</pre></div>
+</div>
+<p>Reload <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>Install Prequisite</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">autoconf</span> <span class="n">automake</span> <span class="n">autotools</span><span class="o">-</span><span class="n">dev</span> <span class="n">curl</span> <span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">libmpc</span><span class="o">-</span><span class="n">dev</span> <span class="n">libmpfr</span><span class="o">-</span><span class="n">dev</span> <span class="n">libgmp</span><span class="o">-</span><span class="n">dev</span> <span class="n">gawk</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">bison</span> <span class="n">flex</span> <span class="n">texinfo</span> <span class="n">gperf</span> <span class="n">libtool</span> <span class="n">patchutils</span> <span class="n">bc</span> <span class="n">zlib1g</span><span class="o">-</span><span class="n">dev</span> <span class="n">libexpat</span><span class="o">-</span><span class="n">dev</span> <span class="n">ninja</span><span class="o">-</span><span class="n">build</span> <span class="n">git</span> <span class="n">cmake</span> <span class="n">libglib2</span><span class="mf">.0</span><span class="o">-</span><span class="n">dev</span> <span class="n">libslirp</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>Compile and install</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd riscv-gnu-toolchain
+./configure --prefix=$RISCV 
+make -j$(nproc)
+make linux -j $(nproc)
+</pre></div>
+</div>
+<p>Check if installed successfully</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">riscv64</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">elf</span><span class="o">-</span><span class="n">gcc</span> <span class="o">-</span><span class="n">v</span>
+</pre></div>
+</div>
+<p><img alt="success image" src="../_images/riscv-tool-chain-success.png" /></p>
+</section>
+<section id="riscv-tools">
+<h3><a class="reference external" href="https://github.com/riscv/riscv-tools.git">riscv-tools</a><a class="headerlink" href="#riscv-tools" title="Link to this heading">#</a></h3>
+<p>Clone the respository</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">riscv</span><span class="o">/</span><span class="n">riscv</span><span class="o">-</span><span class="n">tools</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">riscv</span><span class="o">-</span><span class="n">tools</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span> <span class="o">--</span><span class="n">init</span> <span class="o">--</span><span class="n">recursive</span>
+</pre></div>
+</div>
+<p>Prequsites</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">autoconf</span> <span class="n">automake</span> <span class="n">autotools</span><span class="o">-</span><span class="n">dev</span> <span class="n">curl</span> <span class="n">libmpc</span><span class="o">-</span><span class="n">dev</span> <span class="n">libmpfr</span><span class="o">-</span><span class="n">dev</span> <span class="n">libgmp</span><span class="o">-</span><span class="n">dev</span> <span class="n">libusb</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="n">dev</span> <span class="n">gawk</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">bison</span> <span class="n">flex</span> <span class="n">texinfo</span> <span class="n">gperf</span> <span class="n">libtool</span> <span class="n">patchutils</span> <span class="n">bc</span> <span class="n">zlib1g</span><span class="o">-</span><span class="n">dev</span> <span class="n">device</span><span class="o">-</span><span class="n">tree</span><span class="o">-</span><span class="n">compiler</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="n">libexpat</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>Build in <code class="docutils literal notranslate"><span class="pre">riscv-tools</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">build</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>If success, the terminal shows in the end.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>RISC-V Toolchain installation completed!
+</pre></div>
+</div>
+<p>If running into <code class="docutils literal notranslate"><span class="pre">./machine/flush_icache.c:4:</span> <span class="pre">Error:</span> <span class="pre">unrecognized</span> <span class="pre">opcode</span> <span class="pre">'fence.i',</span> <span class="pre">extension</span> <span class="pre">'zifencei'</span> <span class="pre">required</span></code></p>
+<ul class="simple">
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">./build.sh</span></code> append Line 22  <code class="docutils literal notranslate"><span class="pre">--with-arch=rv64gc_zifencei</span></code></p></li>
+<li><p>Rerun <code class="docutils literal notranslate"><span class="pre">./build.sh</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Original
+CC= CXX= build_project riscv-pk --prefix=$RISCV --host=riscv64-unknown-elf 
+
+# New
+CC= CXX= build_project riscv-pk --prefix=$RISCV --host=riscv64-unknown-elf --with-arch=rv64gc_zifencei
+</pre></div>
+</div>
+<p>If running into <code class="docutils literal notranslate"><span class="pre">multiple</span> <span class="pre">definition</span> <span class="pre">of</span> <span class="pre">'host'</span></code> error</p>
+<ul class="simple">
+<li><p>Modify file <code class="docutils literal notranslate"><span class="pre">./riscv-tests/isa/Makefile</span></code>, append variable <code class="docutils literal notranslate"><span class="pre">RISCV_GCC_OPTS</span></code> with <code class="docutils literal notranslate"><span class="pre">-fcommon</span></code></p></li>
+<li><p>Rerun <code class="docutils literal notranslate"><span class="pre">./build.sh</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># original
+RISCV_GCC_OPTS ?= -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles
+
+# New
+RISCV_GCC_OPTS ?= -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -fcommon
+</pre></div>
+</div>
+</section>
+<section id="verilator">
+<h3>Verilator<a class="headerlink" href="#verilator" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Prerequisites:
+sudo apt-get install git perl python3 make autoconf g++ flex bison ccache
+sudo apt-get install libgoogle-perftools-dev numactl perl-doc
+sudo apt-get install libfl2  # Ubuntu only (ignore if gives error)
+sudo apt-get install libfl-dev  # Ubuntu only (ignore if gives error)
+sudo apt-get install zlibc zlib1g zlib1g-dev  # Ubuntu only (ignore if gives error)
+
+git clone https://github.com/verilator/verilator   # Only first time
+
+# Every time you need to build:
+unsetenv VERILATOR_ROOT  # For csh; ignore error if on bash
+unset VERILATOR_ROOT  # For bash
+cd verilator
+git pull         # Make sure git repository is up-to-date
+git tag          # See what versions exist
+git checkout v5.008  # Switch to specified release version
+
+autoconf         # Create ./configure script
+./configure      # Configure and create Makefile
+make -j `nproc`  # Build Verilator itself (if error, try just &#39;make&#39;)
+sudo make install
+</pre></div>
+</div>
+<p>Check</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">verilator</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+</section>
+<section id="gtkwave">
+<h3>gtkwave<a class="headerlink" href="#gtkwave" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">gtkwave</span>
+</pre></div>
+</div>
+</section>
+<section id="ripes">
+<h3><a class="reference external" href="https://github.com/mortbopet/Ripes">Ripes</a><a class="headerlink" href="#ripes" title="Link to this heading">#</a></h3>
+<p>Just download the app image or use online version.</p>
+</section>
+</section>
 </section>
 
 
@@ -326,7 +488,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab1: Assembly and Basic Design Flow</p>
+        <p class="prev-next-title">Lab1: Assembly &amp; Basic Design Flow</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -336,6 +498,31 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-setup">Environment Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-by-yourself">Setting up by yourself</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#riscv-gnu-toolchain">riscv-gnu-toolchain</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#riscv-tools">riscv-tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verilator">Verilator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gtkwave">gtkwave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ripes">Ripes</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
