@@ -12,9 +12,9 @@ Teaching assistants
 
 **Kai-Chieh Hsu**
 
-* `kaijhsu.cs12@nycu.edu.tw <kaijhsu.cs12@nycu.edu.tw>`_
+* Email: `kaijhsu.cs12@nycu.edu.tw <kaijhsu.cs12@nycu.edu.tw>`_
 * Location: EC619
 
 **Ting-Wei Chou**
-
-* `userwei.cs12@nycu.edu.tw <userwei.cs12@nycu.edu.tw>`_
+* Discord ID: userwei
+* Email: `userwei.cs12@nycu.edu.tw <userwei.cs12@nycu.edu.tw>`_
