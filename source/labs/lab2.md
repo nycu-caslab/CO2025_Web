@@ -138,7 +138,7 @@ Implement your RISC-V single-cycle CPU. Your CPU should support the following RI
 TAs have prepared a Verilator testbench and some `TEST_INSTRUCTION.txt` files to grade your design. The correctness will be verified by comparing the register values.
 
 ```{warning}
-Do not modify the register, instruction memory, or CPU I/O interface, or you will receive 0 points.
+Do not modify the register, instruction memory, or CPU I/O interface; otherwise, you will receive 0 points.
 ```
 
 ## Submission
@@ -172,7 +172,7 @@ tree lab2_<stduent_id>
 ```
 
 ```{warning}
-The deadline for submission is **x/xx 23:59**. Any incorrect format will result in a 10-point deduction.
+The deadline for submission is x/xx at 23:59. Submissions in an incorrect format will result in a 10-point deduction.
 ```
 
 ## Hints
