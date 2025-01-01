@@ -1,1 +1,0 @@
-navigator.serviceWorker&&navigator.serviceWorker.register("/CO2025_Web/sw.js",{scope:"/CO2025_Web/"})
