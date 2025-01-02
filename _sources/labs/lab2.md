@@ -8,7 +8,7 @@ Don’t panic! This lab is not as difficult as it might seem. To successfully im
 
 ## Lab Source Code
 
-The TAs have prepared a [template](https://github.com/nycu-caslab/CO2025/tree/main/Lab2/lab2_template) for you. You can follow the template or modify it as needed. However, there are certain elements you should not change:
+The TAs have prepared a [template](https://github.com/nycu-caslab/CO2025/tree/main/Lab2) for you. You can follow the template or modify it as needed. However, there are certain elements you should not change:
 
 - Registers
 - Instruction Memory
@@ -161,14 +161,28 @@ lab2_<student_id>.zip
 │   ├── PC.v
 │   ├── Register.v
 │   ├── ShiftLeftOne.v
-│   └── SingleCycleCPU.v
+│   ├── SingleCycleCPU.v
+│   ├── ...(other source code files)
 ```
 
-You can check if the unzipped file contains the folder structure as described by running:
+To compress your file, run the following commands:
 
 ```bash
-unzip lab2_<stduent_id>.zip
-tree lab2_<stduent_id>
+sudo apt-get install zip
+zip -rq lab2_<student_id>.zip lab2_<student_id>
+```
+
+After creating the zip file, you can verify its contents and folder structure by running:
+
+```bash
+chmod +x validate_zip.sh
+./validate_zip.sh lab2_<student_id>.zip
+```
+
+If the file format is correct, you should see the following message in the terminal:
+
+```
+Validation successful: All required files are present.
 ```
 
 ```{warning}

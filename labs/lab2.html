@@ -327,7 +327,7 @@
 </section>
 <section id="lab-source-code">
 <h2>Lab Source Code<a class="headerlink" href="#lab-source-code" title="Link to this heading">#</a></h2>
-<p>The TAs have prepared a <a class="reference external" href="https://github.com/nycu-caslab/CO2025/tree/main/Lab2/lab2_template">template</a> for you. You can follow the template or modify it as needed. However, there are certain elements you should not change:</p>
+<p>The TAs have prepared a <a class="reference external" href="https://github.com/nycu-caslab/CO2025/tree/main/Lab2">template</a> for you. You can follow the template or modify it as needed. However, there are certain elements you should not change:</p>
 <ul class="simple">
 <li><p>Registers</p></li>
 <li><p>Instruction Memory</p></li>
@@ -474,12 +474,22 @@
 │   ├── PC.v
 │   ├── Register.v
 │   ├── ShiftLeftOne.v
-│   └── SingleCycleCPU.v
+│   ├── SingleCycleCPU.v
+│   ├── ...(other source code files)
 </pre></div>
 </div>
-<p>You can check if the unzipped file contains the folder structure as described by running:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unzip<span class="w"> </span>lab2_&lt;stduent_id&gt;.zip
-tree<span class="w"> </span>lab2_&lt;stduent_id&gt;
+<p>To compress your file, run the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>zip
+zip<span class="w"> </span>-rq<span class="w"> </span>lab2_&lt;student_id&gt;.zip<span class="w"> </span>lab2_&lt;student_id&gt;
+</pre></div>
+</div>
+<p>After creating the zip file, you can verify its contents and folder structure by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>validate_zip.sh
+./validate_zip.sh<span class="w"> </span>lab2_&lt;student_id&gt;.zip
+</pre></div>
+</div>
+<p>If the file format is correct, you should see the following message in the terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Validation</span> <span class="n">successful</span><span class="p">:</span> <span class="n">All</span> <span class="n">required</span> <span class="n">files</span> <span class="n">are</span> <span class="n">present</span><span class="o">.</span>
 </pre></div>
 </div>
 <div class="admonition warning">
